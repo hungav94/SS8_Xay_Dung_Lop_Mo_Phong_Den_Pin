@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô phỏng sự hoạt động của đèn pin</title>
+    <script src="batteryScript.js"></script>
+    <script src="flashLampScript.js"></script>
+</head>
+<body>
+<script>
+    let battery = new Battery(10);
+    // battery.setEnergy();
+
+    let flashLamp = new FlashLamp();
+    flashLamp.setBattery(battery.getEnergy());
+    console.log(flashLamp.getBatteryInfo());
+
+    document.write('Battery info: ' + flashLamp.getBatteryInfo() + '<br>');
+    flashLamp.light();
+
+    document.write('Turn on <br>');
+    flashLamp.turnOn();
+    flashLamp.light();
+    battery.decreaseEnergy();
+    flashLamp.setBattery(battery.getEnergy());
+    document.write('Battery info: ' + flashLamp.getBatteryInfo() + '<br>');
+
+    document.write("Turn off<br/>")
+    flashLamp.turnOff();
+    flashLamp.light();
+
+</script>
+</body>
+</html>
